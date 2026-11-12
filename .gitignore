@@ -1,0 +1,7 @@
+node_modules
+.local/
+.env*
+!.env.example
+dist/
+public/anatomy.bundle.js
+.openai/hosting.json

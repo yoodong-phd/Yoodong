@@ -1,0 +1,7 @@
+import {sqliteTable,text,integer,index} from 'drizzle-orm/sqlite-core';
+export const students=sqliteTable('students',{id:text('id').primaryKey(),studentNo:text('student_no').notNull().unique(),name:text('name').notNull(),salt:text('salt').notNull(),passwordHash:text('password_hash').notNull(),createdAt:text('created_at').notNull()});
+export const sessions=sqliteTable('sessions',{tokenHash:text('token_hash').primaryKey(),studentId:text('student_id').notNull(),role:text('role').notNull(),expiresAt:integer('expires_at').notNull()});
+export const attempts=sqliteTable('attempts',{id:text('id').primaryKey(),studentId:text('student_id').notNull(),questionId:text('question_id').notNull(),selected:integer('selected').notNull(),correct:integer('correct').notNull(),unit:text('unit').notNull(),createdAt:text('created_at').notNull(),dayKey:text('day_key').notNull()},t=>[index('attempts_student_idx').on(t.studentId)]);
+export const lessons=sqliteTable('lessons',{id:text('id').primaryKey(),studentId:text('student_id').notNull(),unit:text('unit').notNull(),review:integer('review').notNull(),correct:integer('correct').notNull(),total:integer('total').notNull(),createdAt:text('created_at').notNull(),dayKey:text('day_key').notNull()},t=>[index('lessons_student_idx').on(t.studentId)]);
+export const settings=sqliteTable('settings',{key:text('key').primaryKey(),value:text('value').notNull()});
+export const limits=sqliteTable('auth_limits',{key:text('key').primaryKey(),count:integer('count').notNull(),resetAt:integer('reset_at').notNull()});
