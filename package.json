@@ -1,1 +1,20 @@
-{"name":"anatomy-quest","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","dev":"node scripts/dev.mjs","db:generate":"drizzle-kit generate"},"devDependencies":{"drizzle-kit":"^0.31.0","drizzle-orm":"^0.44.0","esbuild":"^0.28.2"},"dependencies":{"three":"^0.187.0"}}
+{
+  "name": "anatomy-quest",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "db:generate": "drizzle-kit generate",
+    "test:ui": "node tests/ui-smoke.mjs"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.0",
+    "drizzle-orm": "^0.44.0",
+    "esbuild": "^0.28.2",
+    "puppeteer-core": "^25.17.0"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  }
+}
